@@ -7,7 +7,7 @@ build:
     docker: {}
   tagPolicy:
     envTemplate:
-      template: '{{.DOCKER_REGISTRY}}/mgronvol/jxisawsome:{{.VERSION}}'
+      template: '{{.DOCKER_REGISTRY}}/nordeaoke10/jxisawsome:{{.VERSION}}'
   local: {}
 deploy:
   kubectl: {}
@@ -18,7 +18,7 @@ profiles:
     - docker: {}
     tagPolicy:
       envTemplate:
-        template: '{{.DOCKER_REGISTRY}}/mgronvol/jxisawsome:{{.DIGEST_HEX}}'
+        template: '{{.DOCKER_REGISTRY}}/nordeaoke10/jxisawsome:{{.DIGEST_HEX}}'
     local: {}
   deploy:
     helm:
@@ -26,5 +26,5 @@ profiles:
       - name: jxisawsome
         chartPath: charts/jxisawsome
         setValueTemplates:
-          image.repository: '{{.DOCKER_REGISTRY}}/mgronvol/jxisawsome'
+          image.repository: '{{.DOCKER_REGISTRY}}/nordeaoke10/jxisawsome'
           image.tag: '{{.DIGEST_HEX}}'
